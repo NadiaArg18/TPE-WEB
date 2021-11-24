@@ -10,13 +10,8 @@ class CanalView {
   
     function verCanales($canales){
         $this->smarty->assign('canales', $canales);
-        $this->smarty->display();
-        $this->smarty->display();
-    }
-
-    function verCanal($canal){
-        $this->smarty->assign('canal', $canal);
-        $this->smarty->display();
+        $this->smarty->display('templates/showHome.tpl');
+        $this->smarty->display('templates/agregarCanal.tpl');
     }
 
     function showHomeLocation(){

@@ -46,3 +46,32 @@ a{
     font-size: 20px;
 }
 
+.hidden{
+    display: none;
+}
+
+ul {
+    padding-left: 2rem;
+    list-style-type: none;
+}
+  
+ul li {
+    padding-left: 3rem;
+    background-position: 0 0;
+    background-size: 2rem;
+    background-repeat: no-repeat;   
+}
+
+.serieporCanal{
+    padding-left: 2rem;
+    width: 50%;
+}
+
+.canales{
+    text-align:center;
+    font-weight: bold;
+}
+
+#listacanales, ul{
+    padding-left: 30%;
+}

@@ -5,12 +5,11 @@ class LogInView{
 
     private $smarty;
 
-    function __construct() {
+    function __construct(){
         $this->smarty = new Smarty();
     }
 
-    function showLogin($error = ""){
-        $this->smarty->assign('Nombre', 'Log In');   
+    function showLogin($error = ""){ 
         $this->smarty->assign('error', $error);      
         $this->smarty->display('templates/acceso.tpl');
     }
@@ -18,4 +17,10 @@ class LogInView{
     function showHome(){
         header("Location: ".BASE_URL."home");
     }
+    
+    function editarPermisos($usuarios){
+        $this->smarty->assign('usuarios', $usuarios);
+        $this->smarty->display('templates/editarPermisos.tpl');
+    }
 }
+

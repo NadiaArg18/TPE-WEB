@@ -27,10 +27,19 @@ switch ($params[0]){
     case 'verify': 
         $loginController->verifyLogin(); 
         break;
+    case 'registrarUser':
+        $loginController->registerUser();
+        break;
+    case 'deleteUser':
+        $loginController->eliminarUsuario($params[1]);
+        break;
+    case 'editarRol':
+        $loginController->editarRol();
+        break;
     case 'home':
         $seriesController->showHome();
         break;
-    case 'crearSerie';
+    case 'crearSerie':
         $seriesController->crearSerie();
         break;
     case 'verSerie':
@@ -40,23 +49,23 @@ switch ($params[0]){
         $seriesController->borrarSerie($params[1]);
         break;
     case 'editarSerie':
-        $seriesController->editarSerie($params[1]);
+        $seriesController->editarSerie();
         break;
     case 'home':
         $canalController->showHome();
         break;
-    case 'crearSerie';
+    case 'verSerieCanal':
+        $seriesController->verSerieCanal($params[1]);
+        break;
+    case 'crearCanal':
         $canalController->crearCanal();
         break;
-    case 'verSerie':
-        $canalController->traerCanal($params[1]);
-        break;
-    case 'borrarSerie':
+    case 'borrarCanal':
         $canalController->borrarCanal($params[1]);
         break;
-    case 'editarSerie':
-        $canalController->editarCanal($params[1]);
-        break;
+    case 'editarCanal':
+        $canalController->editarCanal();
+        break;   
     default:
         echo ('404 page not found');
         break;

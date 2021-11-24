@@ -14,13 +14,6 @@ class CanalModel{
         $canales = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $canales;        
     }
-    
-    function verCanal($id){ 
-        $sentencia = $this->db->prepare("SELECT * FROM canales WHERE id_canal=?");
-        $sentencia->execute(array($id));
-        $canal = $sentencia->fetch(PDO::FETCH_OBJ);
-        return $canal;
-    }
 
     function agregarCanal($NombreCanal, $id_canal){      
         $sentencia = $this->db->prepare("INSERT INTO canales (NombreCanal, id_canal) VALUES(?,?)");
@@ -28,12 +21,12 @@ class CanalModel{
     }
     
     function borrarCanalFromDB($id){
-        $sentencia = $this->db->prepare("DELETE FROM canales WHERE id_canal = ?");
+        $sentencia = $this->db->prepare("DELETE FROM canales WHERE canales . id_canal = ?");
         $sentencia->execute(array($id));
     }
 
-    function editarCanalFromDB($id){
-        $sentencia = $this->db->prepare("UPDATE canales WHERE id_canal=?");
-        $sentencia->execute(array($id));
+    function editarCanalFromDB($id, $NombreCanal){
+        $sentencia = $this->db->prepare("UPDATE canales SET NombreCanal = ? WHERE id_canal = ?");
+        $sentencia->execute(array($id, $NombreCanal));
     }
 }

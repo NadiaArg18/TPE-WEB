@@ -1,15 +1,24 @@
 {include file='templates/header.tpl'}
 
-<h1>Serie: {$serie->Nombre}</h1>
+<h1>Serie: {$serie->nombreSerie}</h1>
 <h2>Canal de Televisión: {$serie->Canal}</h2>
 <h2>Género: {$serie->Genero}</h2>
 
-<form action="editarSerie" method="post">
-        <input type="text" placeholder="Nombre" name="Nombre" id="Nombre">
-        <input type="text" placeholder="Canal" name="Canal" id="Canal">
-        <input type="text" placeholder="Genero" name="Genero" id="Genero">
+<h3>Agregar comentario: </h3>
+<form action="" id="form-alta">
+        <label for="comentario">Comentario: </label>
+        <textarea name="comentario" id="comentario"></textarea>
+        <label for="puntaje">Puntaje: </label>
+        <input type="number" name="puntaje" id="puntaje" class="btn btn-success" min="0" max="5" required>
+        <input type="number" value="{$serie->id_Series}" name="fk_id_Nombre" class="hidden">
+        <input type="submit" class="btn btn-primary" id="btn-carga">
 </form>
+
+<div id="app">
+        {include file='templates/vue/comentarios.tpl'}
+</div>
 
 <a href='home'> Volver </a>
 
+<script src="js/comentarios.js"></script>
 {include file='templates/footer.tpl'}
