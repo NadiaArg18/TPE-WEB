@@ -64,7 +64,7 @@ class SerieController{
             $this->SerieView->verSerie($serie, $logeado);
         } else{
             $serie = $this->SerieModel->verSerie($id);
-            $this->SerieView->verSerie($serie);
+            $this->SerieView->verSerie($id, $serie);
         }
     } 
 
