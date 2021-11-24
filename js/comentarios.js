@@ -46,7 +46,9 @@ async function agregarComentario(){
             "body": JSON.stringify(valoracion)
         });
         if(res.status === 200){
-            console.log(valoracion)       
+            console.log(valoracion);       
+        } else {
+            console.log("Error al crear comentario");
         }
     } catch(e){
         console.log(e);
@@ -61,6 +63,8 @@ async function eliminarComentario(id_valoracion){
         if(res.status === 200){
             console.log("se eliminó");
             comentariosporSerie();
+        } else{
+            console.log("error al borrar")
         }
     } catch(e){
         console.log(e);
