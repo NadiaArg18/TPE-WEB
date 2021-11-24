@@ -4,6 +4,7 @@
 <h2>Canal de Televisión: {$serie->Canal}</h2>
 <h2>Género: {$serie->Genero}</h2>
 
+{if $logeado}
 <h3>Agregar comentario: </h3>
 <form action="" id="form-alta">
         <label for="comentario">Comentario: </label>
@@ -17,6 +18,13 @@
 <div id="app">
         {include file='templates/vue/comentarios.tpl'}
 </div>
+{else}
+        <form action="" id="form-alta">
+                <input type="number" value="{$serie->id_Series}" name="fk_id_Nombre" class="hidden">
+        </form>
+        <div id="app">
+                {include file='templates/vue/comentarios.tpl'}
+        </div>
 
 <a href='home'> Volver </a>
 
