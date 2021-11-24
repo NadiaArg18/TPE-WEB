@@ -8,17 +8,16 @@ class SerieView {
         $this->smarty = new Smarty();
     }  
   
-    function verSeries($series, $canales, $Admnistrador){
+    function verSeries($series, $canales){
         $this->smarty->assign('series', $series);
         $this->smarty->assign('canales', $canales);
-        $this->smarty->assign('Administrador', $Admnistrador);
         $this->smarty->display('templates/agregarSerie.tpl');
         $this->smarty->display('templates/showHome.tpl');
     }
 
-    function verSerie($serie, $comentarios){
+    function verSerie($serie, $logeado){
         $this->smarty->assign('serie', $serie);
-        $this->smarty->assign('comentarios', $comentarios);
+        $this->smarty->assign('logeado', $logeado);
         $this->smarty->display('templates/serieDetalles.tpl');
     }
 

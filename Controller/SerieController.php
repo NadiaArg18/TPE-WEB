@@ -56,10 +56,17 @@ class SerieController{
     }
 
     function traerSerie($id){
-        $this->autenticar->checkLoggedIn();
-        $serie = $this->SerieModel->verSerie($id);
-        $this->SerieView->verSerie($serie);
-    }
+        session_start();
+        if (isset($_SESSION["Email"])){
+            $logeado = true;
+            $this->autenticar->checkLoggedIn();
+            $serie = $this->SerieModel->verSerie($id);
+            $this->SerieView->verSerie($serie, $logeado);
+        } else{
+            $serie = $this->SerieModel->verSerie($id);
+            $this->SerieView->verSerie($serie);
+        }
+    } 
 
     function verSerieCanal($canal){
         $serieporCanal = $this->SerieModel->obtenerSeriesporCanal($canal);
